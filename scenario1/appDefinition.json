@@ -1,0 +1,90 @@
+[
+    {
+      "id": 1,
+      "name": "VehicleProcessing",
+      "module": [
+        {"name": "SensorModule", "RAM": 10, "Type": "SOURCE"},
+        {"name": "SensorModuleV", "RAM": 10, "Type": "MODULE"},
+        {"name": "S", "RAM": 10, "Type": "SINK"},
+        {"name": "FogModule", "RAM": 20, "Type": "MODULE"},
+        {"name": "FogModuleV", "RAM": 20, "Type": "MODULE"},
+        {"name": "CloudModule", "RAM": 50, "Type": "SINK"}
+      ],
+      "message": [
+        {
+          "name": "SensorToEdge",
+          "s": "None",
+          "d": "SensorModule",
+          "instructions": 100,
+          "bytes": 1000
+        },
+        {
+          "name": "EdgeToFog",
+          "s": "SensorModule",
+          "d": "FogModule",
+          "instructions": 100,
+          "bytes": 1000
+        },
+        {
+          "name": "FogToCloud",
+          "s": "FogModule",
+          "d": "CloudModule",
+          "instructions": 10,
+          "bytes": 100
+        },
+        {
+          "name": "EdgeToSensor",
+          "d": "S",
+          "s": "SensorModuleV",
+          "instructions": 10,
+          "bytes": 100
+        },
+        {
+          "name": "FogToEdge",
+          "d": "SensorModuleV",
+          "s": "FogModuleV",
+          "instructions": 10,
+          "bytes": 100
+        },
+        {
+          "name": "CloudToFog",
+          "d": "FogModuleV",
+          "s": "CloudModule",
+          "instructions": 10,
+          "bytes": 100
+        }
+      ],
+      "transmission": [
+        {
+          "module": "SensorModule",
+          "message_in": "SensorToEdge",
+          "message_out": "EdgeToFog"
+        },
+        {
+          "module": "SensorModuleV",
+          "message_in": "FogToEdge",
+          "message_out": "EdgeToSensor"
+        },
+        {
+          "module": "S",
+          "message_in": "EdgeToSensor"
+        },
+        {
+          "module": "FogModule",
+          "message_in": "EdgeToFog",
+          "message_out": "FogToCloud"
+        },
+        {
+          "module": "FogModuleV",
+          "message_in": "CloudToFog",
+          "message_out": "FogToEdge"
+        },
+        {
+          "module": "CloudModule",
+          "message_in": "FogToCloud",
+          "message_out": "CloudToFog"
+        }  
+      ]
+    }
+]
+  

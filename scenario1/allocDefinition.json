@@ -1,0 +1,48 @@
+{
+    "initialAllocation": [
+      {
+        "app": "VehicleProcessing",
+        "module_name": "FogModule",
+        "id_resource": 5
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "FogModule",
+        "id_resource": 6
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "FogModule",
+        "id_resource": 7
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "FogModuleV",
+        "id_resource": 5
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "FogModuleV",
+        "id_resource": 6
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "FogModuleV",
+        "id_resource": 7
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "CloudModule",
+        "id_resource": 8
+      },
+      {
+        "app": "VehicleProcessing",
+        "module_name": "S",
+        "id_resource": 9
+      }
+    ]
+  }
+  
+  
+  
+  
